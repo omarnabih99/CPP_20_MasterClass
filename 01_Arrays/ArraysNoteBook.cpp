@@ -106,6 +106,16 @@ int main()
     std::array <double, 5> sizeArr1 {1, 2, 3, 4, 5};
     std::cout << "Size of int array is: " << sizeArr.size() << "\n";
     std::cout << "Size of double array is: " << sizeArr1.size() << "\n";
+    // std::size() can also be used with std::array thanks to function overloading
+    std::cout << "Size of double array using std::size() is: " << std::size(sizeArr1) << "\n";
+
+    // Using std::size() with C arrays not std::arrays (introduced in C++17). We can use it as an upper limit in looping on an array
+    int cSizeArr[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::cout << "The C Array Size is: " << std::size(cSizeArr) << "\n";
+    /*
+     * This cannot be done as cSizeArr is not std::array 
+     * std::cout << "The C Array Size is: " << cSizeArr.size() << "\n";
+    */
 
 /*
 *   c- maxsize function
@@ -160,7 +170,7 @@ int main()
 */
     std::array indexArr1{6.2, 7.5, -8.1, 9.3, 10.4, 11.6}; // compiler knows automatically the number and type of element through the initialization list
     std::cout << "print the array using index: \n";
-    for (int i = 0; i < 6; i++) // this is equivalent to using begin and end
+    for (int i = 0; i < indexArr1.size(); i++) // this is equivalent to using begin and end
     {
         std::cout << "indexArr1[" << i <<"]: " << indexArr1[i] << "\n";
     }
