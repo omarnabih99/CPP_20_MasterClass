@@ -1,4 +1,4 @@
-# C++ Programming Exercises
+# C++ Programming
 
 Welcome to my C++ programming exercises repository! This repository contains a collection of exercises and explanation notebooks to help you learn and practice C++ programming concepts.
 
