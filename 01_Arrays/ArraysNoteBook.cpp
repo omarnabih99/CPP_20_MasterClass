@@ -187,6 +187,19 @@ int main()
     }
 
 /*
+*   Note: we can't directly print an array of integers without looping
+*/
+    int directArr[5] {1, 2, 3, 4, 5};
+    std::array <int,5> directArr2 {1, 2, 3, 4, 5};
+    // Printing c-arrays directly will not prompt an error. This will print the address of the first element in the array in hexa format as the name of an c-array is an address of it's first element
+    std::cout << "Printing c-array of integers directly: " << directArr << "\n";
+    // Printing std::array arrays will prompt an error (uncomment tbe following line to see) as the name of std::array is not an address of it's first element
+    // std::cout << "Printing array of integers directly: " << directArr2 << "\n";
+    // but we can make an equivalent expression to this in c-arrays to print the address of the first element
+    std::cout << "Printing std::array array of integers directly: " << directArr2.data() << "\n";
+
+
+/*
 *   11- initializing array elements with user input
 */
     std::array <int,5> inputArr {0};
@@ -295,6 +308,34 @@ int main()
 /*
 *   14- Literal C-strings
 */
+    // 1- define a literal C-string
+    char cString [] {"Hello"};
+    char cString2 [] {"Hello, it is Omar Nabih"};
 
+    // 2- Print a c-string
+    // a- we can print a c-string directly as a null character is appended to it automatically by the compiler
+    std::cout << "Printing c-string directly: " << cString << "\n";
+    std::cout << "Printing c-string directly: " << cString2 << "\n";
 
+    // b- we can print the c-string using for range loop
+    // This loop will print the string till it meets a null character -> Hello
+    std::cout << "Printing the c-string using for range loop: ";
+    for (auto c : cString)
+    {
+        std::cout << c;
+    }
+    std::cout << "\n";
+    // This loop will print the string till it meets a null character -> Hello, it is Omar Nabih
+    std::cout << "Printing the c-string using for range loop: ";
+    for (auto c : cString2)
+    {
+        std::cout << c;
+    }
+    std::cout << "\n";
+
+    // 3- determine the size of a c-string
+    // we will notice that the size will be greater than the string characters by one
+    // this additional character is the automatically appended null character
+    std::cout << "The size of (Hello) is: " << std::size(cString) << "\n";
+    std::cout << "The size of (Hello, it is Omar Nabih) is: " << std::size(cString2) << "\n";
 }
