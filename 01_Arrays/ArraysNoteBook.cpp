@@ -99,7 +99,7 @@ int main()
     }
  
 /*
- *  b- size function 
+*   b- size function 
 *   -> this function return the number of elements in the array
 */
     std::array <int, 5> sizeArr {0};
@@ -203,7 +203,7 @@ int main()
     }   
 
 /*
-*   Exercises
+*   12- Exercises
 */
 
     // Exercise (1): Assign values to an array which equals to 10 * the member index
@@ -240,5 +240,61 @@ int main()
     }
 
     std::cout << "Sum is: " << sum << "\n";
+
+/*
+*   13- Character Arrays
+*/
+    // 1- define a Character Array
+    char message [5] {'H', 'e', 'l', 'l', 'o'};
+
+    // 2- Print the Character Array
+    // a- using for ranged loop
+    std::cout << "Print the message using for range: ";
+    for(auto c : message)
+    {
+        std::cout << c;
+    }
+    std::cout << "\n";
+
+    // b- using for index loop
+    std::cout << "Print the message using for index: ";
+    for (int i {}; i < 5; i++)
+    {
+        std::cout << message[i];
+    }
+    std::cout << "\n";
+
+    // c- Direct print out
+    // we can print the message directly without looping if it is a proper C string -> terminated by a null character
+    char message1 [] {'O', 'm', 'a', 'r', '\0'};
+    std::cout << "Print the message directly using null character: " ;
+    std::cout << message1 << "\n";
+    // Trying to print the character array without terminating it will print garbage data
+    char message2 [5] {'N', 'a', 'b', 'i', 'h'};
+    std::cout << "Print the message directly without using null character: " ;
+    std::cout << message2 << "\n";
+    // This also will print garbage data
+    char message3 [] {'N', 'a', 'b', 'i', 'h'};
+    std::cout << "Print the message directly without using null character and without sepicyfing a size: " ;
+    std::cout << message3 << "\n";   
+    // we can specify a size greater than the number of the desired characters by 1 character to make a room for the null character which will be appended automatically by the compiler
+    char message4 [6] {'H', 'e', 'l', 'l', 'o'};
+    std::cout << "Print the message directly using automatically appended null character: " ;
+    std::cout << message4 << "\n";
+
+    // 3- Modify an array element
+    std::cout << "Modify an Array Element..." << "\n";
+    message [1] = 'a';
+    std::cout << "The new message is: ";
+    for(auto c : message)
+    {
+        std::cout << c;
+    }
+    std::cout << "\n";
+
+/*
+*   14- Literal C-strings
+*/
+
 
 }
