@@ -1,4 +1,4 @@
-# C++ Arrays Exercises
+# C++ Arrays
 
 Welcome to the C++ Arrays section of my programming exercises repository! This section focuses on exercises related to arrays in C++, covering various concepts such as array declaration, initialization, manipulation, and common algorithms involving arrays.
 
