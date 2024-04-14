@@ -1,0 +1,99 @@
+#include <iostream>
+#include <ctime>
+
+int main()
+{
+    // 1- Seed the std::srand()
+    std::srand(std::time(0));
+
+    // 2- define the predictions
+    char prediction0[]{ "a lot of kinds running in the backyard!" };
+    char prediction1[]{ "a lot of empty beer bootles on your work table." };
+    char prediction2[]{ "you Partying too much with kids wearing weird clothes." };
+    char prediction3[]{ "you running away from something really scary" };
+    char prediction4[]{ "clouds gathering in the sky and an army standing ready for war" };
+    char prediction5[]{ "dogs running around in a deserted empty city" };
+    char prediction6[]{ "a lot of cars stuck in a terrible traffic jam" };
+    char prediction7[]{ "you sitting in the dark typing lots of lines of code on your dirty computer" };
+    char prediction8[]{ "you yelling at your boss. And oh no! You get fired!" };
+    char prediction9[]{ "you laughing your lungs out. I've never seen this before." };
+
+    // 3-define the sentinel value for the loop
+    bool end {false};
+
+    // 4- define the name array max size -> must be const
+    const int maxSize {15};
+
+    // 5- declare the char array which stores the user name
+    char userName[maxSize] {};
+
+    // 6- prompt the user to enter their name
+    std::cout << "What is your name, dear ?" << "\n";
+
+    // 7- take the user name as a setence
+    std::cin.getline(userName, maxSize);
+
+    // 8- while loop using sentinel value
+    while (end == false)
+    {
+        std::cout << "Oh dear, " << userName << ". I see ";
+
+        // we will make the range 0~10 while we have predicitions 0~9 to make room for the default case which will be satisfied when the std::rand generates 10
+        int randomNumber = std::rand() % 11;
+        switch(randomNumber)
+        {
+        case 0:
+            std::cout << prediction0 << std::endl;
+            break;
+        case 1:
+            std::cout << prediction1 << std::endl;
+            break;
+
+        case 2:
+            std::cout << prediction2 << std::endl;
+            break;
+        case 3:
+            std::cout << prediction3 << std::endl;
+            break;
+        case 4:
+            std::cout << prediction4 << std::endl;
+            break;
+        case 5:
+            std::cout << prediction5 << std::endl;
+            break;
+        case 6:
+            std::cout << prediction6 << std::endl;
+            break;
+        case 7:
+            std::cout << prediction7 << std::endl;
+            break;
+
+        case 8:
+            std::cout << prediction8 << std::endl;
+            break;
+
+        case 9:
+            std::cout << prediction9 << std::endl;
+            break;
+        default:
+            std::cout << ", huum, I don't see anything" << std::endl;           
+        }
+
+        // prompt the user if he wants to try again
+        std::cout << "Do you want me to try again ? (Y | N) : ";
+        char goOn {};
+        std::cin >> goOn;
+
+        if ( (goOn == 'Y') || (goOn == 'y') )
+        {
+            end = false;
+        }
+        else if ( (goOn == 'N') || (goOn == 'n') )
+        {
+            end = true;
+            std::cout << "That's all I have for you today dear. Best wishes" << "\n";
+        }
+
+    }
+
+}
