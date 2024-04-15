@@ -338,4 +338,136 @@ int main()
     // this additional character is the automatically appended null character
     std::cout << "The size of (Hello) is: " << std::size(cString) << "\n";
     std::cout << "The size of (Hello, it is Omar Nabih) is: " << std::size(cString2) << "\n";
+
+/*
+*   15- Multi Dimensional Arrays.
+*   -> called array of arrays
+*   -> used to store data in tabular form for eample
+*   -> accessing the elements is done through multidimensinal indexing system: arr[0][2]
+*   -> we don't really have the concept of multidimensinal concept in the memory. 
+*   -> So, in memory data will be stored in the linear fashion.
+*   -> This logical addressing is done by the compiler.
+*   -> Compiler maps between our 2D structure to the linear thing we have in the computer memory.
+*/
+    // 1- defining a multi dimension array
+    int packages [4][3]
+        {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9},
+            {10, 11, 12}
+        }; // array of 4 arrays of 3 integers each
+
+    // 2- print the size of the whole multi dimension array    
+    // size will be 3 int * 4
+    std::cout << "Size of packages: " << sizeof(packages) << "\n";
+
+    // 3- print the number of elements of the multi dimension array (outer elements)
+    std::cout << "packages is an array of " << std::size(packages) << " arrays" << "\n";
+
+    // 4- print the number of elements of each array in the multi dimensional array
+    std::cout << "packages is an array of " << std::size(packages) 
+                                            << " arrays, each array has "
+                                            << std::size(packages[0])
+                                            << " integers."
+                                            << "\n";
+
+    // 5- print the array elemnts
+    std::cout << "Printing the multi dimensional array elements" << "\n";
+    for (int i {}; i < std::size(packages); i++)
+    {
+        for (int j {}; j < std::size(packages[i]); j++)
+        {
+            std::cout << "Item (" << i << "," << j <<") : "
+                      << packages[i][j]
+                      << "\n";
+        }
+    }
+
+    // 6- 3D arrays
+    int houseBlocks [7][5][3]
+    {
+        {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9},
+            {10, 11, 12},
+            {13, 14, 15}
+        },
+
+        {
+            {16, 17, 18},
+            {19, 20, 21},
+            {22, 23, 24},
+            {25, 26, 27},
+            {28, 29, 30}
+        },
+
+        {
+            {31, 32, 33},
+            {34, 35, 36},
+            {37, 38, 39},
+            {40, 41, 42},
+            {43, 44, 45}
+        },
+
+        {
+            {46, 48, 49},
+            {50 ,51, 52},
+            {53, 54, 55},
+            {56, 57, 58},
+            {59, 60, 61}
+        },
+
+        {
+            {62, 63, 64},
+            {65, 66, 67},
+            {68, 69, 70},
+            {71, 72, 73},
+            {74, 75, 76}
+        },
+
+        {
+            {77, 78, 79},
+            {80, 81, 82},
+            {83, 84, 85},
+            {86, 87, 88},
+            {89, 90, 91}
+        },
+
+        {
+            {92, 93, 94},
+            {95, 96, 97},
+            {98, 99, 100},
+            {101, 102, 103},
+            {104, 105, 106}
+        },
+    }; // array of 7 arrays each has 5 arrays each has 3 integers
+
+    // 7- printing 3D arrays
+    std::cout << "Printing 3D array" << "\n";
+    for (int i {}; i < std::size(houseBlocks); i++)
+    {
+        for (int j {}; j < std::size(houseBlocks[i]); j++)
+        {
+            std::cout << "[";
+            for (int k {}; k < std::size(houseBlocks[i][j]); k++)
+            {
+                std::cout << houseBlocks [i][j][k] << " ";
+            }
+            std::cout << "]";
+        }
+
+        std::cout << "\n";
+    }
+
+/*
+*   Note: In multi dimensional arrays, we can only omitt the outer size.
+*   ex: array[][5], array[][5][3]
+*   In general: compiler an only detect the outer size automatically.
+*   Autofilling: it is possible also in multidimensional arrays.
+*   Modifying elements: we can access a single most inner element in a multi dimensional array.
+*   ex: houseBlocks [1][2][2] = 1001;
+*/
+
 }
