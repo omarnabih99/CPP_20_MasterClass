@@ -63,6 +63,10 @@ int main()
 */
     std::cout << "arr1[0]: " << arr1[0] << "\n";
     std::cout << "arr2[0]: " << arr2[0] << "\n";
+    // this will print a garbage data
+    // std::cout << "arr1[5]: " << arr1[5] << "\n";
+    // this will fire an exception
+    // std::cout << "arr1[6]: " << arr1.at(6) << "\n";
 /*
 *   5- front and back functions
 */
@@ -469,5 +473,56 @@ int main()
 *   Modifying elements: we can access a single most inner element in a multi dimensional array.
 *   ex: houseBlocks [1][2][2] = 1001;
 */
+
+/*
+*   16- Multidimensional character array 
+*/
+    // defining a multi dimension character array -> an array of character arrays
+    const int nameLength {15};
+    char members[][nameLength]
+    {
+        {'O', 'm', 'a', 'r'},
+        {'A', 'm', 'm', 'a', 'r'},
+        {'M', 'a', 'r', 'c', 'o'},
+        {'M', 'o', 's', 't', 'a', 'f', 'a', 'M', 'o', 's', 't', 'a', 'f', 'a', 'a'}
+    };
+
+    // direct printing out the multi dimension character array
+    // this method is unsafe in case of the characters are just equal to the specified size as it may go over and print outside your valid memory block untill a terminating null char is encountered
+    std::cout << "Unsafe printing of members: " << "\n";
+    for(int i {}; i < std::size(members); i++)
+    {
+        std::cout << members[i] << "\n";
+    }
+
+    // printing the array charcater by character with std::size() as bounds
+    // this method is safe as it doesn't depend on the terminating null pointer
+    std::cout << "Printing members character by character: " << "\n";
+    for(int i {}; i < std::size(members); i++)
+    {
+        for (int j {}; j < std::size(members[i]); j++)
+        {
+            std::cout << members[i][j];
+        }
+
+        std::cout << "\n";
+    }
+
+    // define an array of c-strings literals
+    char members1[][nameLength]
+    {
+        {"Omar"},
+        {"Amamr"},
+        {"Marco"},
+        {"Mostafa"}
+    };
+
+    // direct printing members1 
+    // size of the char array must exceeds the desired string characters to make a room for the automatically appended null charcater
+    std::cout << "Printing members1 directly: " << "\n";
+    for (int i{}; i < std::size(members1); i++)
+    {
+        std::cout << members1[i] << "\n";
+    }
 
 }
