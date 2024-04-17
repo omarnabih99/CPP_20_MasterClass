@@ -28,4 +28,4 @@
 
 - O(sqrt(n)).
 
--Better than `Linear Search` but worst than `Binary Search`.
+- Better than `Linear Search` but worst than `Binary Search`.
