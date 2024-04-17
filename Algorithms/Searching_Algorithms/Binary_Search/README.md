@@ -19,3 +19,9 @@
 8. if there is no match and program reached the last element (start = end = mid), return error not found.
 
 9. if matched, return the index of the element.
+
+10. **Note:** To apply `binary search` on an array, the array must be `sorted` firstly.
+
+## Worst time complexity
+
+- O(log n)
