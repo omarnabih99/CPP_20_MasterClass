@@ -54,4 +54,14 @@ int main()
     {
         std::cout << "Element is found at index: " << searchResult << "\n";
     }
+
+    searchResult = Jump_Search(jumpSearchArr.data(), jumpSearchArr.size(), 35);
+    if (-1 == searchResult)
+    {
+        std::cout << "Element not found" << "\n";
+    }
+    else
+    {
+        std::cout << "Element is found at index: " << searchResult << "\n";
+    }
 }
