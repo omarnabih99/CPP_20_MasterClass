@@ -30,7 +30,7 @@ Additionally, there are explanation notebooks available in this section to provi
 To get started with the array exercises:
 
 1. Clone this repository to your local machine using `git clone`.
-2. Navigate to 01_Arrays folder.
+2. Navigate to 02_Pointers folder.
 3. Read the problem statement and revise the solution in the provided `*.cpp` file.
 4. Test your solution and debug as needed.
 5. Optionally, refer to the explanation notebooks for further insights and explanations.
