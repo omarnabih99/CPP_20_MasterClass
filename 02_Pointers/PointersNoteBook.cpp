@@ -179,6 +179,39 @@ int main()
     std::cout << "print the base address of the string: " << (const void*)str1 << "\n";
     
 
+/***************************************************************************************************************************************************
+*   11- Array of pointer to character
+*   ->  A disadvantage of creating strings using the character array syntax is that you must say
+*       most of time how many character the array may hold especially when using array of strings
+*   ->  The array of pointer to character solved this headache
+***************************************************************************************************************************************************/
+    //Array of strings using array syntax.
+    //The compiler will deduce automatically the outer size which is 3 strings.
+    //But it will not deduce the inner size which is limited to 20 characters here.
+    //If we tried to enter more than 20 characters including the null pointer, there will be a compiler error.
+    //The specified inner size will be allocated during compile time. So, if we didn't use all the specified size, there will be unused allocated memory.
+    char namesArr[][20]
+    {
+        "Omar Nabih",
+        "Ammar Yasser",
+        "Ezz Mohsen"
+    };
+
+
+    //To avoid this headache of memory loss and limiting the number of characters, we will use array of pointer to character.
+    //We can enter any number of characters and the compiler will deduce them automatically.
+    const char* names[]
+    {
+        "Omar Nabih",
+        "Ammar Yasser",
+        "Ezz Mohsen",
+        "Tom Alfred Alex John Wick Superman Batman Ironman"        
+    };
+    std::cout << names[0] << "\n";
+    std::cout << names[1] << "\n";
+    std::cout << names[2] << "\n";
+    std::cout << names[3] << "\n";
+
 
 
     
