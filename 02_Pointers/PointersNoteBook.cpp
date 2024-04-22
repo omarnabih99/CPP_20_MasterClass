@@ -212,14 +212,6 @@ int main()
     std::cout << names[2] << "\n";
     std::cout << names[3] << "\n";
 
-
-
-    
-
-
-
-
-
 }
 
 
