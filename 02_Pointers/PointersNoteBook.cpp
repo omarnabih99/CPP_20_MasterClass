@@ -212,6 +212,73 @@ int main()
     std::cout << names[2] << "\n";
     std::cout << names[3] << "\n";
 
+
+/***************************************************************************************************************************************************
+*   12- Const Pointer and Pointer to Const
+***************************************************************************************************************************************************/
+    int unprotectedVar {};
+    int var1{2};
+
+    // 1- A non-constant pointer to non-constant data -> we can modify data through this pointer, and we can make this pointer to point somewhere else.
+    int*  nonConstantPointerToNonConstantData {&unprotectedVar};
+    // try to modify the data through this pointer
+    *nonConstantPointerToNonConstantData = 100;
+    std::cout << "The non constant pointer points to: " << nonConstantPointerToNonConstantData << " and used to modify the non constant data to be: " << *nonConstantPointerToNonConstantData << "\n";
+    // try to make this pointer to point somewhere else
+    nonConstantPointerToNonConstantData = &var1;
+    std::cout << "The non constant pointer will point to somewhere else: " << nonConstantPointerToNonConstantData << " and the data stored in this address is: " << *nonConstantPointerToNonConstantData << "\n";
+
+
+    // 2- A constant pointer to non-constant data -> we can modify data through this pointer, but we can't make this pointer to point somewhere else.
+    int* const constantPointerToNonConstantData{&unprotectedVar};
+    // try to modify the data through this pointer
+    *constantPointerToNonConstantData = 200;
+    std::cout << "The constant pointer points to: " << constantPointerToNonConstantData << " and used to modify the non constant data to be: " << *constantPointerToNonConstantData << "\n";
+    // try to make this pointer to point somewhere else
+    // compiler error -> assignment of read-only variable ‘constantPointer’
+    // constantPointerToNonConstantData = &var1;
+    std::cout << "The constant pointer to non constant data can not point to another memory location rather than that location it is defined with" << "\n";
+
+
+    // 3- A non constant pointer to constant data -> we can't modify data through this pointer, but we can make this pointer to point somewhere else
+    const int* nonConstantPointerToConstantData {&unprotectedVar};
+    // try to modify data through this pointer
+    // compiler error -> assignment of read-only location ‘* nonConstantPointerToConstantData’
+    // *nonConstantPointerToConstantData = 300;
+    std::cout << "We can't modify data through a non constant pointer to constant data, the data is: " << *nonConstantPointerToConstantData << " at: " << nonConstantPointerToConstantData << "\n";
+    // try to make this pointer to point somewhere else
+    nonConstantPointerToConstantData = &var1;
+    std::cout << "The non constant pointer to constant data now points to another location: " << nonConstantPointerToConstantData << "\n";
+
+
+    // 4- A constant pointer to constant data -> we can't modify data through this pointer, and we can't make this pointer to point somewhere else
+    const int* const constantPointerToConstantData {&unprotectedVar};
+    // try to modify data through this pointer
+    // compiler error -> assignment of read-only location ‘*(const int*)constantPointerToConstantData’
+    // *constantPointerToConstantData = 400;
+    std::cout << "We can't modify data through a constant pointer to constant data, the data is: " << *constantPointerToConstantData << " at: " << constantPointerToConstantData << "\n";
+    // try to make this pointer points to somewhere else
+    // compiler error -> assignment of read-only variable ‘constantPointerToConstantData’
+    // constantPointerToConstantData = &var1
+    std::cout << "The constant pointer to non constant data can not point to another memory location rather than that location it is defined with" << "\n";
+
+
+    // 5- Hack Pointers
+    // -> Hack pointers are used to allow modifying constant data
+    // The constant data here is not defined as const, but the pointer points to it is defined as a pointer to const data
+    int* hackPointer {&unprotectedVar};
+    *hackPointer = 500;
+    std::cout << "The data defined in pointer to const data can be modyfied through a hack pointer, the data is changed to: " << *hackPointer << "\n";
+
+    const int protectedVar {1};
+    // try to modify a const qualified variable directly
+    // compiler error -> assignment of read-only variable ‘protectedVar’
+    // protectedVar = 2;
+    std::cout << "Const qualified variables can not be changed directly, the value is still: " << protectedVar << "\n";
+    // compiler error invalid conversion from ‘const int*’ to ‘int*’. while in C it generates just an error
+    // hackPointer = &protectedVar;
+    std::cout << "Address of const qualified variables can not assigned to pointer to non const data" << "\n";
+
 }
 
 
