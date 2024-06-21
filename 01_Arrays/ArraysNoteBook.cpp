@@ -254,10 +254,6 @@ int main()
     for (size_t index = 0; index < 10; ++index)
     {
         ex1Arr[index] = index * 10;
-    }
-
-    for (size_t index = 0; index < 10; ++index)
-    {
         std::cout << "after multiplying->ex1Arr["<< index <<"]: " << ex1Arr[index] << "\n";
     }
 
@@ -266,14 +262,14 @@ int main()
     int sum {0};
 
     std::cout << "Please input the array to be summed: " << "\n";
-    for(size_t index = 0; index < 5; ++index)
+    for(size_t index = 0; index != sumArray.size(); ++index)
     {
         std::cin >> sumArray[index];
     }
 
-    for(auto element : sumArray)
+    for(size_t index = 0; index != sumArray.size(); index++)
     {
-        sum += element;
+        sum += sumArray[index];
     }
 
     std::cout << "Sum is: " << sum << "\n";
