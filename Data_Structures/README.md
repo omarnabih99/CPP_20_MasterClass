@@ -77,3 +77,38 @@
 ## Space and time complexities for some data structures
 
 ![Complexities](https://github.com/omarnabih99/CPP_20_MasterClass/blob/main/Data_Structures/Screenshot%20from%202024-06-23%2021-24-08.png)
+
+
+## Some data structures applications
+
+1. Arrays:
+
+    - 2D arrays commonly known as, matrices, are used in image processing.
+
+    - It is also used in speech processing, in which each speech signal is an arrya.
+
+    - Any viewing screen is also a multidimensional array of pixels.
+
+2. Linked Lists:
+
+    - Used for symbol table management in designing a compiler.
+
+    - Used in switching between applications (Alt + Tab) in the operating system. (implemented using Circular Linked List)
+
+    - It can be used to implement Stacks, Queues, Graphs, and Trees.
+
+3. Stacks:
+
+    - Undo/Redo button/operation in word processors.
+
+    - Syntaxes in languages are parsed using stacks.
+
+    - Message logs and all messages you get are arranged in a stack.
+
+4. Queues:
+
+    - Operating System uses queues for job scheduling.
+
+    - To handle congestion in the networking, queue can be used.
+
+    - Sending an email, it will be queued.
