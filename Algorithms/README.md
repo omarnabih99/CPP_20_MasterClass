@@ -58,7 +58,7 @@
 |                 |                         | O(logn) in case of recurssion.|
 | Jump Search     | O(sqrt(n))              | O(1)                          |
 | Bubble Sort     | O(n²)                   | O(1)                          |
-| Insertion Sort  | O(n²)                   | 0(1)                          |
+| Insertion Sort  | O(n²)                   | O(1)                          |
 
 ## Some Algorithms Applications
 
