@@ -18,7 +18,7 @@
 
 - Push means adding at the top of the stack.
 
-ex) A stack is represented by an array of 10 integers:
+- example: A stack is represented by an array of 10 integers:
 
     - At first, the stack is empty. So, the top is -1.
 
