@@ -8,6 +8,11 @@
 #define RESET         (0)
 #define BOTTOM        0
 
+/*Application control defs*/
+#define PUSH 1
+#define POP  2
+#define EXIT 3
+
 /*
 *   1- Struct to define the stack and stack size
 *

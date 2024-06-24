@@ -16,13 +16,13 @@ int main()
     scanf("%d", &inputDecision);
 
     int value = 0;
-    while(inputDecision != 3)
+    while(inputDecision != EXIT)
     {
         int stackState = PUSH_STACK_IS_AVAILABLE;
 
         switch (inputDecision)
         {
-            case 1:
+            case PUSH:
                 if(isFull(myStackPtr))
                 {
                    printf("%s", "The stack is full \n");
@@ -48,7 +48,7 @@ int main()
                 break;
             
 
-            case 2:
+            case POP:
                 if(isEmpty(myStackPtr))
                 {
                     printf("%s", "The stack is empty \n");
