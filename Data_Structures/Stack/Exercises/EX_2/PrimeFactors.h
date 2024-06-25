@@ -31,15 +31,6 @@ typedef enum EN_popError_t
     POP_STACK_IS_AVAILABLE
 }EN_popError_t;
 
-/*
-*   Stack functions
-*/
-static void createEmptyStack (ST_stack_t* stack);
-
-static int push (ST_stack_t* stack, int data);
-
-static int pop (ST_stack_t* stack, int* data);
-
 
 /*
 *   Prime factors function

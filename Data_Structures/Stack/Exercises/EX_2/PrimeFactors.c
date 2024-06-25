@@ -2,38 +2,11 @@
 
 
 /*
-*   Stack functions
+*   Stack functions declarations
 */
-static void createEmptyStack (ST_stack_t* stack)
-{
-    stack->top = EMPTY_STACK;
-}
-
-static int push (ST_stack_t* stack, int data)
-{
-    if (stack->top == FULL_STACK)
-    {
-        return PUSH_STACK_OVERFLOW;
-    }
-
-    stack->top++;
-    stack->stack_arr[stack->top] = data;
-
-    return PUSH_STACK_IS_AVAILABLE;
-}
-
-static int pop (ST_stack_t* stack, int* data)
-{
-    if (stack->top == EMPTY_STACK)
-    {
-        return POP_STACK_EMPTY;
-    }
-
-    *data = stack->stack_arr[stack->top];
-    stack->stack_arr[stack->top] = RESET;
-    stack->top--;
-    return POP_STACK_IS_AVAILABLE;
-}
+static void createEmptyStack (ST_stack_t* stack);
+static int push (ST_stack_t* stack, int data);
+static int pop (ST_stack_t* stack, int* data);
 
 
 /*
@@ -66,4 +39,39 @@ void primeFactor(int inputNumber)
         printf("%d \n", value);
     }
 
+}
+
+
+/*
+*   Stack functions
+*/
+static void createEmptyStack (ST_stack_t* stack)
+{
+    stack->top = EMPTY_STACK;
+}
+
+static int push (ST_stack_t* stack, int data)
+{
+    if (stack->top == FULL_STACK)
+    {
+        return PUSH_STACK_OVERFLOW;
+    }
+
+    stack->top++;
+    stack->stack_arr[stack->top] = data;
+
+    return PUSH_STACK_IS_AVAILABLE;
+}
+
+static int pop (ST_stack_t* stack, int* data)
+{
+    if (stack->top == EMPTY_STACK)
+    {
+        return POP_STACK_EMPTY;
+    }
+
+    *data = stack->stack_arr[stack->top];
+    stack->stack_arr[stack->top] = RESET;
+    stack->top--;
+    return POP_STACK_IS_AVAILABLE;
 }
