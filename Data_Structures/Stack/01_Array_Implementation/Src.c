@@ -74,7 +74,7 @@ int main()
                 printf("%s", "Enter your choice: \n");
                 printf("%s", "1 to push a value to the stack \n");
                 printf("%s", "2 to pop a value to the stack \n");
-                printf("%s", "1 to exit the program \n");
+                printf("%s", "3 to exit the program \n");
                 break;
         }
 
