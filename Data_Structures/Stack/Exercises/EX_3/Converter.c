@@ -5,6 +5,47 @@ ST_stack_t* BinaryRepresentationStackPtr = &BinaryRepresentationStack;
 
 
 /*
+*   Stack functions declarations
+*/
+static void createEmptyStack (ST_stack_t* stack);
+static int push (ST_stack_t* stack, int data);
+static int pop (ST_stack_t* stack, int* data);
+static int printStack (ST_stack_t* stack);
+
+
+/*
+*   Decimal to binary coversion function
+*/
+void decimalToBinary(int number)
+{
+    createEmptyStack(BinaryRepresentationStackPtr);
+
+    int stackState;
+    int remainder = 0;
+    while (number != 0)
+    {
+        remainder = number % 2;
+
+        stackState = push(BinaryRepresentationStackPtr, remainder);
+        if (stackState == PUSH_STACK_OVERFLOW)
+        {
+            printf("%s", "Stackoverflow \n");
+            break;
+        }
+
+        number = number / 2;
+    }
+
+    stackState = printStack(BinaryRepresentationStackPtr);
+    if (stackState == PRINT_STACK_EMPTY)
+    {
+        printf("%s", "Stack is empty");
+    }
+    printf("%s", "\n");
+}
+
+
+/*
 *   Stack functions
 */
 static void createEmptyStack (ST_stack_t* stack)
@@ -54,23 +95,3 @@ static int printStack (ST_stack_t* stack)
 }
 
 
-/*
-*   Decimal to binary coversion function
-*/
-void decimalToBinary(int number)
-{
-    createEmptyStack(BinaryRepresentationStackPtr);
-
-    int remainder = 0;
-    while (number != 0)
-    {
-        remainder = number % 2;
-        push(BinaryRepresentationStackPtr, remainder);
-
-        number = number / 2;
-    }
-
-    printStack(BinaryRepresentationStackPtr);
-    puts("\n");
-
-}
