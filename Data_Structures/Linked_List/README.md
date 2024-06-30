@@ -155,6 +155,128 @@ int* ptr;
     p = NULL;
     ```
 
+## Memory Allocation
+
+### Static Memory allocation
+
+- Memory allocated during compile time is called static memory.
+
+- This allocated memory is fixed and cannot be increased or decreased during runtime.
+
+- Global and Static variables are examples of static allocation
+
+- The statically allocated memory remains permanently allocated and freed automatically upon end of the program.
+
+- If you are defining an array:
+
+    - A fixed memory size will be allocated for it during `compile time`.
+
+    - This memory size is fixed and user cannot change it during `runtime`.
+
+    - The values stored by the user in this array maybe less than the size allocated for the array resulting in `memory waste`.
+
+    - The values can be also larger than the size allocated for the array then the program may crash or misbehave.
+
+### Dynamic Memory Allocation
+
+- It is the process of allocating memory at the time of execution `runtime`.
+
+- The dynamic memory requested by a program is allocated by the system in `heap` section of the memory.
+
+- Dynamic memory allocation is done using the standard C library functions
+    
+    1. `malloc()`.
+
+    2. `calloc()`.
+
+    3. `realloc()`.
+
+    4. `free()`.
+
+#### malloc() 
+
+- It is a built-in function declared in <stdlib.h>.
+
+- malloc is short for `memory allocation` and is used to dynamically allocate a single large block of contigous memory according to the size specified.
+
+- Syntax:
+ ```C
+(void*) malloc(size_t size);
+```
+
+- On success, it return a void pointer pointing to the first byte of the allocated memory. Else, it returns NULL.
+
+- `malloc` doesn't have an idea of what it is pointing to.
+
+- It just allocates memory requested by the user without knowing the type of data to be stored inside the memory. So, it returns a void pointer which then can be typecasted to an appropriate type.
+
+- Example: 
+```C
+int* ptr = (int*) malloc(4);
+```
+malloc allocates 4 bytes of memory in the heap and the address of the first byte is stored in the pointer `ptr`.
+
+- The allocated memory locations initial values are `garbage`.
+
+#### calloc()
+
+- It is used to dynamically allocate multiple blocks of memory.
+
+- It stands for contguous allocation.
+
+- Syntax:
+```C
+void* calloc(size_t n, size_t size);
+```
+
+- Example:
+```C
+int* ptr = (int*) calloc(4, sizeof(int));
+```
+
+##### calloc() vs malloc()
+
+- calloc() needs to arguments not just one.
+
+- It allocates multiple blocks of memory each of the same size and sets all bytes to `zero` instead of `garbage` values.
+
+#### realloc()
+
+- It is used to change the size of a previously allocated memory block without losing the old data.
+
+- Syntax:
+```C
+void* realloc(void* ptr, size_t newSize);
+```
+
+- Example:
+```C
+int* ptr = (int*) malloc(sizeof(int));
+ptr = (int*) realloc(ptr, 2 * sizeof(int));
+```
+
+- This function moves the contents of the old block to a new block and the data of the old block is not lost.
+
+- We may lose data when the new size is smaller than the old size.
+
+- Newely allocated bytes using realloc() are not initialized.
+
+#### free()
+
+- It is used to release the dynamically allocated memory in heap.
+
+- The memory allocated in heap will not be released automatically after using the memory.
+
+- It is the programmer's responsibility to release the memory after use.
+
+- It is best practice to assign NULL to the pointer after releasing the allocated memory to avoid dangling pointer.
+
+- Syntax: 
+```C
+void free(ptr);
+```
+
+
 
 ## Self-Referential Structures
 
