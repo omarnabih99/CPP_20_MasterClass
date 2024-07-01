@@ -26,6 +26,38 @@
 
 ## Types of data structures
 
+### Linear Data Structures
+
+- A data structure is linear when all elements are arranged in a linear (sequential) order.
+
+- Example: Arrays, Linked Lists, Stacks, and Queues.
+
+### Non Linear Data Structures
+
+- A data structure is non linear when all elements are not arranged in a linear (sequential) order. There is no linear arrangment of elements.
+
+- Example: Trees, and Graphs.
+
+### Static Data Strucures
+
+- In these type of data structures, the memory is allocated at compile time. Therefore, the maximum size is constant.
+
+- Advantage: Fast access.
+
+- Disadvantage: Slower insertion and deletion.
+
+- Example: Arrays.
+
+### Dynamic Data Structures
+
+- In these type of data structures, the memory is allocated at run time. Therefore, the maximum size is flexible.
+
+- Advantage: Faster Insertion and deletion.
+
+- Disadvantage: Slower access.
+
+- Example: Linked Lists.
+
 1. Arrays -> Stores data of the same type, and can be multidimensional.
 
 2. Stack -> Last In First Out (LIFO).
