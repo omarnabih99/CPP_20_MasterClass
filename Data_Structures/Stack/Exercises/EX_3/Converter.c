@@ -8,9 +8,9 @@ ST_stack_t* BinaryRepresentationStackPtr = &BinaryRepresentationStack;
 *   Stack functions declarations
 */
 static void createEmptyStack (ST_stack_t* stack);
-static int push (ST_stack_t* stack, int data);
-static int pop (ST_stack_t* stack, int* data);
-static int printStack (ST_stack_t* stack);
+static EN_pushError_t push (ST_stack_t* stack, int data);
+static EN_popError_t pop (ST_stack_t* stack, int* data);
+static EN_printError_t printStack (ST_stack_t* stack);
 
 
 /*
@@ -20,14 +20,16 @@ void decimalToBinary(int number)
 {
     createEmptyStack(BinaryRepresentationStackPtr);
 
-    int stackState;
+    EN_pushError_t pushState;
+    EN_printError_t printState;
+
     int remainder = 0;
     while (number != 0)
     {
         remainder = number % 2;
 
-        stackState = push(BinaryRepresentationStackPtr, remainder);
-        if (stackState == PUSH_STACK_OVERFLOW)
+        pushState = push(BinaryRepresentationStackPtr, remainder);
+        if (pushState == PUSH_STACK_OVERFLOW)
         {
             printf("%s", "Stackoverflow \n");
             break;
@@ -36,8 +38,8 @@ void decimalToBinary(int number)
         number = number / 2;
     }
 
-    stackState = printStack(BinaryRepresentationStackPtr);
-    if (stackState == PRINT_STACK_EMPTY)
+    printState = printStack(BinaryRepresentationStackPtr);
+    if (printState == PRINT_STACK_EMPTY)
     {
         printf("%s", "Stack is empty");
     }
@@ -53,7 +55,7 @@ static void createEmptyStack (ST_stack_t* stack)
     stack->top = EMPTY_STACK;
 }
 
-static int push (ST_stack_t* stack, int data)
+static EN_pushError_t push (ST_stack_t* stack, int data)
 {
     if (stack->top == FULL_STACK)
     {
@@ -66,7 +68,7 @@ static int push (ST_stack_t* stack, int data)
     return PUSH_STACK_IS_AVAILABLE;
 }
 
-static int pop (ST_stack_t* stack, int* data)
+static EN_popError_t pop (ST_stack_t* stack, int* data)
 {
     if (stack->top == EMPTY_STACK)
     {
@@ -79,7 +81,7 @@ static int pop (ST_stack_t* stack, int* data)
     return POP_STACK_IS_AVAILABLE;
 }
 
-static int printStack (ST_stack_t* stack)
+static EN_printError_t printStack (ST_stack_t* stack)
 {
     if (stack->top == EMPTY_STACK)
     {

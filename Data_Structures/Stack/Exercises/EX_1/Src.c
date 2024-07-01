@@ -18,7 +18,8 @@ int main()
     int value = 0;
     while(inputDecision != EXIT)
     {
-        int stackState = PUSH_STACK_IS_AVAILABLE;
+        EN_pushError_t pushState = PUSH_STACK_IS_AVAILABLE;
+        EN_popError_t popState = POP_STACK_EMPTY;
 
         switch (inputDecision)
         {
@@ -32,15 +33,15 @@ int main()
                 printf("%s", "Enter the value to be pushed: ");
                 scanf("%d", &value);
 
-                stackState = push(myStackPtr, value);
+                pushState = push(myStackPtr, value);
 
-                if(stackState == PUSH_STACK_OVERFLOW)
+                if(pushState == PUSH_STACK_OVERFLOW)
                 {
                     printf("%s", "The stack is full \n");
                     printStack(myStackPtr);
                     break;
                 }
-                else if(stackState == PUSH_STACK_IS_AVAILABLE)
+                else if(pushState == PUSH_STACK_IS_AVAILABLE)
                 {
                     printf("%s", "Push is done \n");
                     printStack(myStackPtr);
@@ -55,13 +56,13 @@ int main()
                     break;
                 }
 
-                stackState = pop(myStackPtr, &value);
-                if(stackState == POP_STACK_EMPTY)
+                popState = pop(myStackPtr, &value);
+                if(popState == POP_STACK_EMPTY)
                 {
                     printf("%s", "The stack is empty \n");
                     break;
                 }
-                else if(stackState == POP_STACK_IS_AVAILABLE)
+                else if(popState == POP_STACK_IS_AVAILABLE)
                 {
                     printf("The popped value is: %d \n", value);
                     printStack(myStackPtr);

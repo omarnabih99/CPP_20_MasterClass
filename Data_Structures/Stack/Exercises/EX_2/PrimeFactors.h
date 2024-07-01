@@ -13,7 +13,7 @@
 
 #define SENTINEL_VALUE (-1)
 
-typedef struct stack
+typedef struct ST_stack_t
 {
     int stack_arr    [STACK_SIZE];  // stack like array
     int top;                        // a variable to keep track of the topmost element in the array

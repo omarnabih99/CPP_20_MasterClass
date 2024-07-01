@@ -13,7 +13,7 @@ void createEmptyStack (ST_stack_t* stack)
 /*
 *   2- Function to push
 */
-int push (ST_stack_t* stack, int data)
+EN_pushError_t push (ST_stack_t* stack, int data)
 {
     if (stack->top == FULL_STACK)
     {
@@ -30,7 +30,7 @@ int push (ST_stack_t* stack, int data)
 /*
 *   3- Function to pop
 */
-int pop (ST_stack_t* stack, int* data)
+EN_popError_t pop (ST_stack_t* stack, int* data)
 {
     if (stack->top == EMPTY_STACK)
     {
@@ -47,7 +47,7 @@ int pop (ST_stack_t* stack, int* data)
 /*
 *   4- Function to print stack
 */
-int printStack (ST_stack_t* stack)
+EN_printError_t printStack (ST_stack_t* stack)
 {
     if (stack->top == EMPTY_STACK)
     {
@@ -80,7 +80,7 @@ int getStackTop(ST_stack_t* stack)
 /*
 *   6- Function to test stack whether it is full or not
 */
-int isFull (ST_stack_t* stack)
+EN_isFull_t isFull (ST_stack_t* stack)
 {
     if (stack->top == FULL_STACK)
     {
@@ -95,7 +95,7 @@ int isFull (ST_stack_t* stack)
 /*
 *   7- Function to test stack whether it is empty or not
 */
-int isEmpty (ST_stack_t* stack)
+EN_isEmpty_t isEmpty (ST_stack_t* stack)
 {
     if (stack->top == EMPTY_STACK)
     {

@@ -5,8 +5,8 @@
 *   Stack functions declarations
 */
 static void createEmptyStack (ST_stack_t* stack);
-static int push (ST_stack_t* stack, int data);
-static int pop (ST_stack_t* stack, int* data);
+static EN_pushError_t push (ST_stack_t* stack, int data);
+static EN_popError_t pop (ST_stack_t* stack, int* data);
 
 
 /*
@@ -50,7 +50,7 @@ static void createEmptyStack (ST_stack_t* stack)
     stack->top = EMPTY_STACK;
 }
 
-static int push (ST_stack_t* stack, int data)
+static EN_pushError_t push (ST_stack_t* stack, int data)
 {
     if (stack->top == FULL_STACK)
     {
@@ -63,7 +63,7 @@ static int push (ST_stack_t* stack, int data)
     return PUSH_STACK_IS_AVAILABLE;
 }
 
-static int pop (ST_stack_t* stack, int* data)
+static EN_popError_t pop (ST_stack_t* stack, int* data)
 {
     if (stack->top == EMPTY_STACK)
     {

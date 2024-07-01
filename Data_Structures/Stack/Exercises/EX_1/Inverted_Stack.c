@@ -5,7 +5,7 @@ void createEmptyStack (ST_stack_t* stack)
     stack->first = EMPTY_STACK;
 }
 
-int push (ST_stack_t* stack, int data)
+EN_pushError_t push (ST_stack_t* stack, int data)
 {
     if (stack->first == FULL_STACK)
     {
@@ -25,7 +25,7 @@ int push (ST_stack_t* stack, int data)
     return PUSH_STACK_IS_AVAILABLE;
 }
 
-int pop (ST_stack_t* stack, int* data)
+EN_popError_t pop (ST_stack_t* stack, int* data)
 {
     if(stack->first == EMPTY_STACK)
     {
@@ -45,7 +45,7 @@ int pop (ST_stack_t* stack, int* data)
     return POP_STACK_IS_AVAILABLE;
 }
 
-int printStack (ST_stack_t* stack)
+EN_printError_t printStack (ST_stack_t* stack)
 {
     if (stack->first == EMPTY_STACK)
     {
@@ -71,7 +71,7 @@ int getStackFirst(ST_stack_t* stack)
     return stack->first; 
 }
 
-int isFull (ST_stack_t* stack)
+EN_isFull_t isFull (ST_stack_t* stack)
 {
     if (stack->first == FULL_STACK)
     {
@@ -82,7 +82,7 @@ int isFull (ST_stack_t* stack)
 
 }
 
-int isEmpty (ST_stack_t* stack)
+EN_isEmpty_t isEmpty (ST_stack_t* stack)
 {
     if (stack->first == EMPTY_STACK)
     {
