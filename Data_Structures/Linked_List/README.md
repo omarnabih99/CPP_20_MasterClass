@@ -358,5 +358,12 @@ struct self
 
     - Head -> Node1 (pointer -> Node 3)(data)(pointer) -> Node2 (pointer -> Node1)(data)(pointer) -> Node3 (pointer -> Node2)(data)(pointer) -> Node 3.
 
+### Linked Lists Applications
 
-    
+- It is used to implement stacks and queues.
+
+- It is used in notepad to perform undo or redo or deleting functions.
+
+- We can think of it's use in a photo viewer for having a look at photos continously in a slide show.
+
+- Used in switching between applications and programs (Alt+Tab) in the operating system.
