@@ -276,8 +276,6 @@ ptr = (int*) realloc(ptr, 2 * sizeof(int));
 void free(ptr);
 ```
 
-
-
 ## Self-Referential Structures
 
 - Self referential structures are those structures in which one or more pointers points to another structure of the same type.
@@ -324,5 +322,41 @@ struct self
     }
     ```
 
+## Linked Lists
+
+- Linked-List is a linear data structure that connect data nodes together without need of `contigous` storing into memory.
+
+- A real life example of linked-list is `Alt+Tab` in windows.
+
+- Any linked-list is characterized by it's head and tail.
+
+- Any linked-list is a group of nodes, each node contains data in addition to a pointer to the same type of the list.
+
+### Types of Linked-List
+
+- Types of Linked-lists are classified according to the pointer variable in the node
+
+1. Singly Linked-List: The last node points to null to terminate the list.
+
+    - Head -> Node1(data)(pointer) -> Node2(data)(pointer) -> NULL.
+
+    - Navigation is forward only
+
+2. Circular Linked-List: The last node points to the first node.
+
+    - Head -> Node1(data)(pointer) -> Node2(data)(pointer) -> Node1.
+
+    - Last element is linked to the first element
+
+3. Doubly Linked-List: in doubly linked-lists, the construction of the node is different, where each node contains data in addition to two pointers, one pointer points to the next node and the other pointer points to the previous node. 
+
+    - Head -> Node1 (pointer -> NULL)(data)(pointer) -> Node2 (pointer -> Node1)(data)(pointer) -> Node3 (pointer -> Node2)(data)(pointer) -> NULL.
+
+    - Forward and backward navigation is available
+
+4. Circular Doubly Linked-List: Same as Doubly linked-list but a pointer in the first node points to the last node and a pointer in the last node points to the first node.
+
+    - Head -> Node1 (pointer -> Node 3)(data)(pointer) -> Node2 (pointer -> Node1)(data)(pointer) -> Node3 (pointer -> Node2)(data)(pointer) -> Node 3.
 
 
+    
