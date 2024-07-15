@@ -73,6 +73,13 @@ int* ptr;
 printf("%ld \n%ld \n%ld", sizeof(NULL), sizeof(int), sizeof(ptr));
 ```
 
+3. Dereferencing a NULL pointer will result in a segmentation fault
+
+```C
+int* ptr = NULL;
+printf("%d\n", *ptr);
+```
+
 ### Best practices
 
 1. It is a good practice to initialize a pointer as `NULL`.
@@ -127,12 +134,13 @@ int main()
 
 - These pointers usually point to some arbiteray memory location and may cause a program to crash or misbehave.
 
-```C
-// unintialized pointer point to a random location in the memory (wild pointer)
-int* ptr;
+- dereferencing a wild pointer may result in a misbehave or garbage data but it doesn't produce neither compilation error nor warnings.
 
-// dereferencing a wild pointer may result in a misbehave nut it doesn't produce neither compilation error nor warnings
+```C
+// unintialized pointer points to a random location in the memory (wild pointer)
+int* ptr;
 *ptr = 10;
+printf("%d", *ptr); // -> this will give 10 but it is not best practice, initialize the pointer first
 ```
 
 - How to avoid Wild Pointers:
